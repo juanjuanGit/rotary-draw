@@ -46,13 +46,18 @@ createRound.prototype.init = function()
 		return;
 	}
 
+	// 指针绘制
 	this.pointer();
 
+	// 转盘边框
 	this.drow(this.config.r+10,this.config.start,this.config.end,this.config.bgColor);
+	// 转盘分块
 	this.moreBlock(this.config.data);
 
+	// 转盘内文字填写
 	this.drowTextM();
 
+	// 转盘中心的两个小圆
 	this.drow(20,this.config.start,this.config.end,this.config.mR);
 	this.drow(10,this.config.start,this.config.end,this.config.sR);
 
@@ -97,7 +102,6 @@ createRound.prototype.moreBlock = function(arr)
 		arr[i].start = a+90+90/arr.length;
 		arr[i].end = b+90-90/arr.length;
 
-
 		this.drow(this.config.r,a,b,c);
 	}
 }
@@ -109,7 +113,6 @@ createRound.prototype.pointer = function()
 	var cx = this.config.cx;
 	var cy = this.config.cy;
 
-	// 清空
 	var arr = [
 		{x:cx-5,y:cy-200},
 		{x:cx-15,y:cy-195},
@@ -174,11 +177,16 @@ createRound.prototype.clearOther = function(t)
 	this.ypos = this.oC.height/2;
 	this.gd.save();
 
-	this.gd.translate(this.xpos, this.ypos);
+	this.gd.translate(this.xpos,this.ypos);
 	this.gd.rotate(d2a(t));
-	this.gd.translate(-this.xpos, -this.ypos);
-	this.gd.drawImage(this.oImg, this.xpos - this.oImg.width / 2, this.ypos - this.oImg.height / 2);
+	this.gd.drawImage(this.oImg, -this.xpos , -this.ypos);
 	this.gd.restore();
+
+	// this.gd.translate(this.xpos, this.ypos);
+	// this.gd.rotate(d2a(t));
+	// this.gd.translate(-this.xpos, -this.ypos);
+	// this.gd.drawImage(this.oImg, this.xpos - this.oImg.width / 2, this.ypos - this.oImg.height / 2);
+	// this.gd.restore();
 
 
 	// 重绘中心小圆

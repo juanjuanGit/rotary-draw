@@ -23,15 +23,14 @@
 	window.onload=function()
 	{		
 		var data = [
-			{name:"一等奖",color:"#dd0",id:'a'},
+			{name:"一等奖",color:"#000",id:'a'},
 			{name:"二等奖",color:"#ff0",id:'b'},
 			{name:"三等奖",color:"#f0f",id:'c'},
 			{name:"四等奖",color:"#f00",id:'3'},
 			{name:"五等奖",color:"#ff0",id:'e'},
 			{name:"六等奖",color:"#f0f",id:'f'},
-			{name:"七等奖",color:"#f00",id:'g'},
-			{name:"八等奖",color:"#ff0",id:'h'},
-			{name:"九等奖",color:"#ff0",id:'i'}
+			{name:"七等奖",color:"#f00",id:'g'}
+			
 		];
 
 		var r = new createRound(
@@ -40,14 +39,14 @@
 				data:data,
 				width:'900',
 				height:'700',
-				r:300
+				r:250
 			});
 
 		var oBtn = document.querySelector('.btn');
 
 		oBtn.onclick = function()
 		{
-			var data2 = {id:'i'};
+			var data2 = {id:'c'};
 			r.pointerMove(data2.id);
 		};
 	};
