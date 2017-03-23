@@ -5,7 +5,8 @@ var x = new createRound(obj,{
 	});
 
 参数：
-	obj : 在该元素下创建添加canvas
+
+	obj : 在该元素下创建添加canvas,
 
 	json:{
 
