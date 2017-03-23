@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>转盘抽奖</title>
+	<script src="js/createRound.js"></script>
+	<style>
+	canvas{
+		background: #f1f1f1;
+	}
+	.btn{
+		width: 100px;
+		height: 40px;
+		background: #999;
+		border: none;
+		font-size: 20px;
+		color: #fff;
+	}
+	</style>
+	<script>
+	
+
+	window.onload=function()
+	{		
+		var data = [
+			{name:"一等奖",color:"#dd0",id:'a'},
+			{name:"二等奖",color:"#ff0",id:'b'},
+			{name:"三等奖",color:"#f0f",id:'c'},
+			{name:"四等奖",color:"#f00",id:'3'},
+			{name:"五等奖",color:"#ff0",id:'e'},
+			{name:"六等奖",color:"#f0f",id:'f'},
+			{name:"七等奖",color:"#f00",id:'g'},
+			{name:"八等奖",color:"#ff0",id:'h'},
+			{name:"九等奖",color:"#ff0",id:'i'}
+		];
+
+		var r = new createRound(
+			'.box',
+			{
+				data:data,
+				width:'900',
+				height:'700',
+				r:300
+			});
+
+		var oBtn = document.querySelector('.btn');
+
+		oBtn.onclick = function()
+		{
+			var data2 = {id:'i'};
+			r.pointerMove(data2.id);
+		};
+	};
+	</script>
+</head>
+<body>
+	<div class="box"></div>
+	<div><input type="button" value="抽奖" class="btn"></div>
+</body>
+</html>
